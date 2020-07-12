@@ -25,10 +25,10 @@
         hoge
   .Chat.main__message-form
     .Chat.main__message-form__new--message
-      %input.message__form{:placeholder => "type a message"}
+      %input.message__form{placeholder: "type a message"}
       .Chat.main__message-form__new--message__mask
         %label{class: "input-box__image"}
           = icon('fas', 'image')
           %input{type: "file"}
-      %input.submit-btn{:type => "submit", :value => "Send"}
+      %input.submit-btn{type: "submit",value: "Send"}
       
