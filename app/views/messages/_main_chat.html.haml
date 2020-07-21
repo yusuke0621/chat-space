@@ -1,13 +1,17 @@
 .Chat.main
   .Chat.main__group-info
     .Chat.main__group-info__group
-      test
+      %ul 
+        %li= @group.name
       .Chat.main__group-info__name
-        member:masa
+        %ul Member:
+        - @group.users.each do |user|
+          %li= user.name
     .Chat.main__group-info__btn
-      = link_to "#", class: "btn--edit"do
+      = link_to edit_group_path(@group.id), class: "btn--edit"do
         Edit
   .Chat.main__message-list
+    = render @messages
     .Chat.main__message-list__message
       .Chat.main__message-list__message__upper
         .Chat.main__message-list__message__upper__user-name
@@ -24,11 +28,11 @@
       .Chat.main__message-list__message__lower
         hoge
   .Chat.main__message-form
-    .Chat.main__message-form__new--message
-      %input.message__form{placeholder: "type a message"}
-      .Chat.main__message-form__new--message__mask
-        %label{class: "input-box__image"}
-          = icon('fas', 'image')
-          %input{type: "file"}
-      %input.submit-btn{type: "submit",value: "Send"}
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
+      .Chat.main__message-form__new--message
+        = f.text_field :content, class: 'message__form', placeholder: 'type a message'
+        = f.label :image, class: 'input-box' do
+          = icon('far', 'image', class: 'input-box__image')
+          = f.file_field :image, class: 'Hidden'
+      = f.submit 'Send', class: 'submit-btn'
       
