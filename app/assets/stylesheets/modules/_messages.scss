@@ -119,11 +119,11 @@
     height: calc(100vh - 190px);
     padding: 46px 40px 0;
     overflow: scroll;
-    &__message{
+    .MessageBox{
       margin-bottom: 40px;
-      &__upper{
+    .MessageInfo{
         display: flex;
-        &__user-name{
+        &__userName{
           color: #333333;
           font-size: 16px;
           font-weight: bold;
@@ -134,15 +134,14 @@
           padding-left: 10px;
         }
       }
-      &__lower{
+      .Message{
         margin-top: 10px;
         color: #434a54;
         font-size: 14px;
         margin-bottom: 40px;
       }
-    
     }
-}
+  }
   &__message-form{
     background-color: #d2d2dd;
     height: 90px;
@@ -190,4 +189,4 @@
       margin-left: 20px;
       padding: 0 30px;
       }
-  }
+}
